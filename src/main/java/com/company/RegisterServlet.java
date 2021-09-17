@@ -9,14 +9,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDateTime;
 
-@WebServlet(urlPatterns = {"/globalTracker"})
-public class RequestTrackerServlet extends HttpServlet {
-
-    private int reqCount = 0;
+@WebServlet(urlPatterns = {"/register"})
+public class RegisterServlet extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        reqCount++;
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String name = req.getParameter("firstname");
         PrintWriter out = resp.getWriter();
-        out.print("Total request count: " + reqCount);
+        out.print(name + " registered!");
     }
 }
